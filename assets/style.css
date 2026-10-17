@@ -1,0 +1,65 @@
+/* The soft-UI look of the apps: one surface colour, light and shade, a violet accent.
+   System fonts only: the site loads nothing from other servers. */
+:root {
+  --bg: #e0e5ec;
+  --text: #3d4657;
+  --muted: #687890;
+  --accent: #5a51e6;
+  --light: #ffffff;
+  --dark: #a3b1c6;
+  --round: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 var(--body);
+  padding: 40px max(18px, env(safe-area-inset-right)) 64px max(18px, env(safe-area-inset-left));
+}
+main { max-width: 760px; margin: 0 auto; display: grid; gap: 36px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+h1, h2, h3 { font-family: var(--round); line-height: 1.2; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(30px, 6vw, 42px); }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; margin-top: 8px; }
+p, ul, ol { margin: 0; }
+ul, ol { padding-left: 1.3em; display: grid; gap: 6px; }
+.lang { justify-self: end; font-size: 15px; }
+.hero { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
+.hero img { width: 120px; height: 120px; }
+.tagline { color: var(--muted); font-size: 19px; margin-top: 6px; }
+.card {
+  background: var(--bg);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 9px 9px 22px var(--dark), -9px -9px 22px var(--light);
+  display: grid;
+  gap: 14px;
+}
+.pills { display: flex; flex-wrap: wrap; gap: 14px; }
+.pill {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--bg);
+  box-shadow: 5px 5px 12px var(--dark), -5px -5px 12px var(--light);
+  font-family: var(--round);
+  font-weight: 600;
+  text-decoration: none;
+}
+.pill:active { box-shadow: inset 4px 4px 8px var(--dark), inset -4px -4px 8px var(--light); }
+.shot { max-width: 300px; width: 100%; border-radius: 26px; box-shadow: 9px 9px 22px var(--dark), -9px -9px 22px var(--light); justify-self: center; }
+.small { font-size: 15px; color: var(--muted); }
+.legal h2 { margin-top: 12px; }
+.legal section { display: grid; gap: 10px; }
+footer { max-width: 760px; margin: 48px auto 0; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 20px; }
+@media (max-width: 520px) {
+  .hero { grid-template-columns: 1fr; justify-items: start; }
+  .hero img { width: 96px; height: 96px; }
+  .card { padding: 22px; }
+}
